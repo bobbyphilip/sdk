@@ -39,9 +39,7 @@ export class RelationsHandler<T = RelationItem> {
 		if (`${collection}` === '') throw new EmptyParamError('collection');
 		if (`${field}` === '') throw new EmptyParamError('field');
 		return (
-			await this.transport.patch<PartialItem<T>>(`/relations/${collection}/${field}`, {
-				params: item,
-			})
+			await this.transport.patch<PartialItem<T>>(`/relations/${collection}/${field}`, item)
 		).data;
 	}
 
